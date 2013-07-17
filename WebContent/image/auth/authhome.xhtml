@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body>
+	auth index sayfası giriş  #{credentialsBean.username}   olarak   #{credentialsBean.role}   rolü ile yapıldı<br/>
+<h:form>
+	
+	#{credentialsBean.role}<br />
+	#{credentialsBean.username}<br />
+	#{credentialsBean.isloggedin}<br />
+	#{credentialsBean.password}<br />
+	#{credentialsBean.actorId}<br /><br /><br /><br />
+		<h:commandButton value="Çıkış" action="#{authenticationBean.authLogout}" />	
+	</h:form>
+	
+</body>
+</html>

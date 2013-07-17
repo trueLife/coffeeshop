@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+<h:head></h:head> 
+<body> 
+<h:form>
+
+<h:commandLink action="home">
+			<h:graphicImage value="/image/templateimages/buttons/back.png" />
+			<f:setPropertyActionListener target="#{credentialsBean.content}"
+				value="/members.xhtml"></f:setPropertyActionListener>
+		</h:commandLink>
+<p:panel rendered="#{credentialsBean.tempId !=-1 }">
+		<h:outputText style="color:red" value="Şifre yi değiştirmeyecekseniz  Boş Bırakınız!"/>
+<h:panelGrid columns="2">  
+Ad Soyad <p:inputText value="#{memberService.uye.adSoyad}"/>
+Kullanıcı Adı <p:inputText value="#{memberService.uye.kullaniciAd}"/>
+Şifre<p:password value="#{memberService.uye.sifre}"/>
+Tel<p:inputText value="#{memberService.uye.tel}"/>
+Durum <h:selectOneMenu value="#{memberService.uye.aktif}">
+<f:selectItem itemLabel="Aktif" itemvalue="#{true}"/>
+<f:selectItem itemLabel="Pasif" itemvalue="#{false}"/>
+</h:selectOneMenu>
+Bakiye<p:inputText value="#{memberService.uye.bakiye}"/>
+Şehir <p:inputText value="#{memberService.uye.sehir}"/>
+<h:commandButton value="Kaydet" action="#{memberService.updateMember}"/> 
+</h:panelGrid>
+</p:panel>
+
+<br/>
+<h:messages  globalOnly="true" />
+</h:form>
+</body> 
+</html>

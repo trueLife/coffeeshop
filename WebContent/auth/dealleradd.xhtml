@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+<h:head>
+<style type="text/css">
+.ui-inputfield {
+width:150px;
+}
+</style>
+
+</h:head>
+<body>
+<h:form onkeypress="if (event.keyCode == 13 ){ document.getElementById('commitbtn').click(); return false; }" rendered="#{credentialsBean.role eq'superadmin'  or  credentialsBean.role eq 'admin'}">
+	
+	<p:panel>
+		<h:panelGrid columns="2">
+			<h:panelGrid columns="2">
+	Bayi Tanım : <p:inputText value="#{deallerService.bayi.tanim}"
+					required="true" requiredMessage="Bayi adı giriniz!" />
+	Bayi Kodu : <p:inputText value="#{deallerService.bayi.kodu}"
+					required="true" requiredMessage="BayiKodu giriniz!"
+					converterMessage="Bayi koduna sadece rakam giriniz"
+					validatorMessage="Bayi kodu 5 karakter olmalıdır">
+					<f:validateLength maximum="5" minimum="5" />
+					<f:convertNumber integerOnly="true" type="number" />
+				</p:inputText>
+	Ad Soyad : <p:inputText value="#{deallerService.bayi.adSoyad}" />
+	Şifre: <p:inputText value="#{deallerService.sifre}" required="true"
+					requiredMessage="Şifre giriniz!">
+					<f:validateLength minimum="5" maximum="12" />
+				</p:inputText>
+	Toplam kâr Payı:<p:inputText value="#{deallerService.bayi.toplamKarPayi}"
+					validatorMessage="toplam kâr payı değerini kontrol ediniz">
+					<f:validateDoubleRange minimum="0" maximum="1" />
+				</p:inputText>
+	Kupon kâr Payı:<p:inputText value="#{deallerService.bayi.kuponKarPayi}"
+					validatorMessage="kupon kâr payı değerini kontrol ediniz">
+					<f:validateDoubleRange minimum="0" maximum="1" />
+				</p:inputText>
+	Bayi Aktif mi? <h:selectBooleanCheckbox
+					value="#{deallerService.bayi.bayiAktif}" required="true"
+					requiredMessage="Bayi Aktif mi?" />
+	Bahis Aktif mi ? <h:selectBooleanCheckbox
+					value="#{deallerService.bayi.kuponYapma}" required="true"
+					requiredMessage="Bahis Aktif im ?" />
+	Bayi Borç :<p:inputText value="#{deallerService.bayi.borc}"
+					validatorMessage="borç değerini kontrol ediniz" />
+	Bayi Bakiye :<p:inputText value="#{deallerService.bayi.bakiye}"
+					validatorMessage="bakiye  değerini kontrol ediniz" />
+
+	TC No : <p:inputText value="#{deallerService.bayi.tcNo}" />
+	Ad Soyad : <p:inputText value="#{deallerService.bayi.adSoyad}" />
+	
+	</h:panelGrid>
+	<h:panelGrid columns="2">
+	
+	Cep Tel1 : <p:inputText value="#{deallerService.bayi.cepTel1}"
+					required="true" requiredMessage="CepTel1 giriniz!" />
+	Cep Tel2 : <p:inputText value="#{deallerService.bayi.cepTel2}" />
+	İş Tel : <p:inputText value="#{deallerService.bayi.isTel}" />
+	Adres : <p:inputText value="#{deallerService.bayi.adres}" />
+	Şehir : <p:inputText value="#{deallerService.bayi.sehir}" />
+	İlçe : <p:inputText value="#{deallerService.bayi.ilce}" />
+	Ülke : <p:inputText value="#{deallerService.bayi.ulke}" />
+	Referans : <p:inputText value="#{deallerService.bayi.referans}" />
+	Açıklama : <p:inputText value="#{deallerService.bayi.aciklama}" />
+	HesapNo : <p:inputText value="#{deallerService.bayi.hesapNo}" />
+	Banka Adı: <p:inputText value="#{deallerService.bayi.banka}" />
+	Yazıcı Tipi: <h:selectOneMenu value="#{deallerService.bayi.yazici}"
+					required="true" requiredMessage="Yazıcı Seçiniz!">
+					<f:selectItem itemLabel="Yazıcı Yok" itemValue="yok" />
+					<f:selectItem itemLabel="Lazer Yazıcı" itemValue="lazer" />
+					<f:selectItem itemLabel="Nokta Vuruşlu" itemValue="nokta" />
+				</h:selectOneMenu>
+			
+			</h:panelGrid>
+		</h:panelGrid>
+				<p:commandButton value="Ekle" action="#{deallerService.persistDealler}" ajax="false"/>
+				<p:commandButton type="reset" value="Formu Temizle" ajax="false" />
+				
+		<h:messages globalOnly="true" style="color:red" />
+		</p:panel>
+	
+	</h:form>
+</body>
+</html>

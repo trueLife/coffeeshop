@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.body{
+	color: #444;
+	background-image: url(../image/backgroundtexture.png);
+	background-repeat: repeat;
+	}
+
+
+#container{
+	height: auto;
+	max-width: 50%;
+	min-width:220px;
+	width:100%;
+	background-color: #000;
+	margin-top: 50px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+
+	}
+#header{
+	float: left;
+	height: 105px;
+	width: 100%;
+	background-color: #000;
+	color: #FFF;
+	background-repeat: no-repeat;
+	background-image: url(../image/Headertop.png);
+	}
+#headerline {
+	float: left;
+	background-color: #000;
+	background-repeat: no-repeat;
+	color: #FF0;
+	height: 18px;
+	width: 100%;
+	background-image: url(../image/Headerbottom.png);
+		
+}
+.context {
+	background-color: #CCC;
+	float: left;
+	margin:auto;
+
+}
+.content{
+	padding:5px;
+	margin:auto;
+	height:40px;
+	width:160px;
+	background-color: sgray;
+	float:left;
+
+}
+#contextContainer{
+margin:auto;
+}
+

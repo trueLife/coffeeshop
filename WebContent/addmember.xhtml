@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<body>
+	<h:form>
+		<h:commandLink action="home">
+			<h:graphicImage value="/image/templateimages/buttons/back.png" />
+			<f:setPropertyActionListener target="#{credentialsBean.content}"
+				value="/members.xhtml"></f:setPropertyActionListener>
+		</h:commandLink>
+	</h:form>
+	<h:form  rendered="#{credentialsBean.role ne 'uye'}"
+		onkeypress="if (event.keyCode == 13 ){ document.getElementById('commitbtn').click(); return false; }">
+		<p:panelGrid columns="2">
+Kullanıcı Adı:  <p:inputText value="#{memberService.uye.kullaniciAd}"
+				required="true" requiredMessage="Kullanıcı Adı giriniz" /> 
+Şifre: <p:inputText value="#{memberService.uye.sifre}" required="true"
+				requiredMessage="Şifre giriniz!">
+				<f:validateLength minimum="6" maximum="12" />
+			</p:inputText>
+AdSoyad:  <p:inputText value="#{memberService.uye.adSoyad}" /> 
+Tel:  <p:inputText value="#{memberService.uye.tel}" /> 
+Şehir:  <p:inputText value="#{memberService.uye.sehir}" /> 
+Bakiye  <p:inputText value="#{memberService.uye.bakiye}" required="true"
+				requiredMessage="kullanıcı bakiyesi giriniz">
+				<f:convertNumber />
+			</p:inputText>
+Aktif mi?<h:selectBooleanCheckbox value="#{memberService.uye.aktif}"
+				required="false" requiredMessage="kullanıcı Aktif mi?" />
+			<h:panelGroup>
+				<p:commandButton value="Kaydet" id="commitbtn"
+					action="#{memberService.persistMember}" />
+			</h:panelGroup>
+			<p:commandButton value="Formu Temizle" type="reset" />
+			<p:messages style="color:red" globalOnly="true" />
+		</p:panelGrid>
+		<h:outputText value="bu ekranı görme yetkiniz yok"
+			rendered="#{credentialsBean.role eq 'uye'}" />
+	</h:form>
+	<h:outputText value="yetkiniz yok"
+		rendered="#{credentialsBean.role eq 'uye'}" />
+	<h:outputText value="bu ekranı görme yetkiniz yok " style="color:red"
+		rendered="#{!credentialsBean.role eq 'uye'}" />
+</body>
+</html>

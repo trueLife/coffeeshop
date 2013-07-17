@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<link rel="shortcut icon" href="http://www.menucool.com/favicon.ico" />
+	<link href="Site.css" rel="stylesheet" type="text/css" />
+	<link href="ddmenuMst.css" rel="stylesheet" type="text/css" />
+	<link href="accordionmenu.css" rel="stylesheet"
+		type="text/css" />
+	<script src="ddmenuMst.js" type="text/javascript"></script>
+	<script src="accordionmenu.js" type="text/javascript"></script>
+	<script type="text/javascript"
+		src="jquery-min.js"></script>
+
+	<style type="text/css">
+#dm {
+	display: none;
+}
+</style>
+	<link href="accordionmenu.css" rel="stylesheet"
+		type="text/css" />
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion();
+  });
+  </script>
+  
+<style type="text/css"> 
+ *{ 
+    margin-top: 5px; 
+} 
+html, body { 
+    height: 100%; 
+    font-size:100%; 
+    font-family:Arial, Helvetica, sans-serif; 
+} 
+body{ 
+    background:url(image/soccer.jpg) top left repeat-y; 
+} 
+
+#header { 
+    height: 6.4em; 
+    background-color:#CCCCCC; 
+} 
+/* icerik alani */ 
+.container { 
+    /*background:url(../image/soccer.jpg) right top repeat-y; */
+    min-height: 100%; 
+    height: auto !important; 
+    height: 100%; 
+    margin: 0 auto -4em; /* footer yukseklik degeri ile ayn olmali */ 
+} 
+
+#left{ 
+    float: left; 
+    clear:both; 
+    width: 15em; 
+    height: 30em; 
+    margin-bottom: 1em; 
+	text-align:center;
+
+
+} 
+#context 
+{   
+    margin: 0 16em 1em 16em; 
+    font:Arial, Helvetica, sans-serif; 
+} 
+#footer, .tampon { 
+    height: 4em; /* .tampon ile footer yuksekligi ayni olmali */ 
+} 
+#footer{ 
+    text-align:center; 
+    color:#036; 
+    background-color:#cfc; 
+} 
+
+#right
+{
+    float: right;
+    width: 15em;
+	height: 30em; 
+}
+</style> 
+</h:head>
+
+<body>
+	<h:form>
+		
+
+<div class="container"> 
+
+<div id="header"> HEADER </div> 
+
+<div id="left">
+
+</div> 
+
+<div id="right"><p>Right </p></div> 
+
+<div id="context">İÇERİK ALKSMDLKASMDAKLSKDASD<p>ASLKDJLKASJDLAJSDAD </p> </div> 
+
+<div class="tampon"></div> 
+
+</div> 
+<div id="footer"> <p>FOOTER</p> </div> 
+	</h:form>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" > 
+<h:head>
+<style type="text/css"> 
+@import url("css/templateStyle.css"); 
+@import url("css/navigatorStyle.css")
+</style>
+
+<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="js/navigator.js"></script>
+
+</h:head> 
+<body> 
+
+<div class="container"> 
+	<!--Header-->
+	<h:form >
+	<div id="header">
+		        <ul id="navigation">
+            <li class="home">
+             <span>
+            <h:commandLink value="Ana Sayfa" >
+            <f:setPropertyActionListener target="#{credentialsBean.content}" value="/content.xhtml" />
+            </h:commandLink>
+            </span>
+            </li>
+            <li class="coupon">
+ <span>
+            <h:commandLink value="Bahisler" >
+            <f:setPropertyActionListener target="#{credentialsBean.content}" value="/bets.xhtml" />
+            </h:commandLink>
+            </span>
+</li>
+			
+            <li class="scores">
+ <span>
+            <h:commandLink value="Sonuçlar" >
+            <f:setPropertyActionListener target="#{credentialsBean.content}" value="/results.xhtml" />
+            </h:commandLink>
+            </span>
+</li>
+            <li class="accounting">
+ <span>
+            <h:commandLink value="Muhasebe" >
+            <f:setPropertyActionListener target="#{credentialsBean.content}" value="/accounting.xhtml" />
+            </h:commandLink>
+            </span>
+</li>
+            <li class="members">
+            <span>
+            <h:commandLink value="Üyeler" rendered="#{credentialsBean.role ne 'uye'}" >
+            <f:setPropertyActionListener target="#{credentialsBean.content}" value="/members.xhtml" />
+            </h:commandLink>
+            </span>
+            </li>
+            <li class="settings">
+            <span>
+            <h:commandLink value="Ayarlar" >
+            <f:setPropertyActionListener target="#{credentialsBean.content}" value="/options.xhtml" />
+            </h:commandLink>
+            </span>
+            </li>
+            <li class="notification">
+<span>
+            <h:commandLink value="Duyurular" >
+            <f:setPropertyActionListener target="#{credentialsBean.content}" value="/notifications.xhtml" />
+            </h:commandLink>
+            </span>
+</li>
+            <li class="rules">
+<span>
+            <h:commandLink value="Kurallar" >
+            <f:setPropertyActionListener target="#{credentialsBean.content}" value="/rules.xhtml" />
+            </h:commandLink>
+            </span>
+
+</li>
+            <li class="contact">
+<span>
+            <h:commandLink value="İletişim" >
+            <f:setPropertyActionListener target="#{credentialsBean.content}" value="/contact.xhtml" />
+            </h:commandLink>
+            </span>
+</li>
+            <li class="logout">
+<span>
+            <h:commandLink value="Çıkış Yap" action="#{authenticationBean.logout}" >
+           
+            </h:commandLink>
+            </span>
+</li>
+        </ul>
+	</div> 
+	<!--Header-->
+	<!--Navigator-->
+	<div id="headLine">
+   <b style="color:yellow;">Giriş Yapan: </b>  <b><span><h:outputText value="#{credentialsBean.username}   "  style="color:white"/></span></b>
+	</div>
+	</h:form>
+	<!--Navigator-->
+	<!--Left-->
+	<div id="left">
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	<span>dasdsadad</span><br/>
+	</div> 
+	<!--Left-->
+	<!--Right-->
+	<div id="right"><br></br>
+	<center><h:graphicImage value="/image/img.jpg" /></center>
+
+	</div> 
+	<!--Right-->
+	<!--Context-->
+	<div id="context">
+		<ui:include src="#{credentialsBean.content}" />
+	</div>
+	<!--Context-->
+	<div class="tampon"></div> 
+</div> 
+<div id="footer"> <br></br><p>Copyright ©</p> </div> 
+<h:messages />
+</body> 
+</html>

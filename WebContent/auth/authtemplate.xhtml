@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<style type="text/css">
+@import url("../css/authStyle.css");
+</style>
+<title>Yönetim Paneli</title>
+</head>
+<body>
+	<div class="container">
+		<div id="tb-toolbar">
+		<div class="btn-group">
+			<h:form>
+					<h:commandButton value="Çıkış Yap"  style="margin-top:10px;color:red" action="#{authenticationBean.authLogout}"   class="btn btn-small"/>
+					<h:commandButton value="Ana Sayfa"  style="margin-top:10px;color:red" action="index?faces-redirect=true"   class="btn btn-small"/>
+					<ui:insert name="toolbar">
+					</ui:insert>
+				</h:form>
+		</div>
+			
+			
+		</div>
+		<div id="header"></div>
+		<div id="headLine">
+			<ui:insert name="headline"></ui:insert>
+		</div>
+		<div id="left">
+			<ui:insert name="left"></ui:insert>
+		</div>
+		<div id="right">
+			<ui:insert name="right"></ui:insert>
+		</div>
+		<div id="context">
+			<ui:insert name="context"></ui:insert>
+		</div>
+		<div class="tampon"></div>
+	</div>
+	<div id="footer">
+		<ui:insert name="footer"></ui:insert>
+		<p>Copyright ©</p>
+	</div>
+</body>
+</html>

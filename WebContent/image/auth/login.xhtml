@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Bets Online</title>
+	<style>
+body {
+	background-image: url('../image/soccer2.jpg');
+	background-size: 100%;
+}
+</style>
+	<h:outputStylesheet name="..resources/style/general.css" />
+</h:head>
+<body>
+	<h:form
+		onkeypress="if (event.keyCode == 13 ){ document.getElementById('commitbtn').click(); return false; }">
+		<center>
+			<div style="margin-top: 35%">
+				<h:panelGroup rendered="#{!(credentialsBean.isloggedin and (credentialsBean.role eq 'admin' or credentialsBean.role eq 'superadmin') )}">
+					<h:panelGrid columns="3">
+						<b style="color: white">Kullanıcı Adı :</b>
+						<h:inputText id="username" value="#{credentialsBean.username}"
+							required="true" requiredMessage="boş bırakılamaz">
+							<f:validateLength maximum="30" minimum="3" />
+						</h:inputText>
+						<h:message style="color:red;" for="username" />
+						<b style="color: white">Şifre :</b>
+						<h:inputSecret id="password" value="#{credentialsBean.password}"
+							required="true" requiredMessage="boş bırakılamaz">
+							<f:validateLength maximum="30" minimum="3" />
+						</h:inputSecret>
+						<h:message style="color:red;" for="password" />
+					</h:panelGrid>
+					<h:commandButton action="#{authenticationBean.authLogin}" value="Giriş" />
+					<h:messages style="color:red;" globalOnly="true" />
+				</h:panelGroup>
+
+
+			</div>
+		</center>
+	</h:form>
+</body>
+</html>
