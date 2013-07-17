@@ -1,0 +1,6 @@
+Bu projede online spor bahis oynatilmasi amaçlanmistir, henüz tamamlanmamis ve gelistirilmesi durdurulmustur.Herhangi bir kullanimi söz konusu degildir.
+#Gelistirme ortami
+eclipse helios
+jpa 2 (hibernate)
+mysql 5
+jsf 2.1
