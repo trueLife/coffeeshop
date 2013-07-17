@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+
+<h:form>
+<h:panelGrid columns="2">
+Bayi Tanım : <h:inputText value="#{serviceBean.bayi.tanim}" required="true" requiredMessage="Bayi adı giriniz!" />
+Bayi Kodu : <h:inputText value="#{serviceBean.bayi.kodu}" required="true"  requiredMessage="BayiKodu giriniz!" converterMessage="Bayi koduna sadece rakam giriniz" validatorMessage="Bayi kodu 5 karakter olmalıdır" >
+<f:validateLength maximum="5" minimum="5"/>
+<f:convertNumber integerOnly="true" type="number" />
+</h:inputText>
+Ad Soyad : <h:inputText value="#{serviceBean.bayi.adSoyad}"  />
+Şifre: <h:inputText value="#{serviceBean.sifre}" required="true" requiredMessage="Şifre giriniz!"  >
+<f:validateLength minimum="6" maximum="12" />
+</h:inputText>
+Toplam kâr Payı:<h:inputText value="#{serviceBean.bayi.toplamKarPayi}" validatorMessage="toplam kâr payı değerini kontrol ediniz">
+<f:validateDoubleRange minimum="0" maximum="1"/>
+</h:inputText>
+Kupon kâr Payı:<h:inputText value="#{serviceBean.bayi.kuponKarPayi}" validatorMessage="kupon kâr payı değerini kontrol ediniz">
+<f:validateDoubleRange minimum="0" maximum="1"/>
+</h:inputText>
+Bayi Aktif mi? <h:selectBooleanCheckbox value="#{serviceBean.bayi.bayiAktif}" required="true" requiredMessage="Bayi Aktif mi?"/>
+Bahis Aktif mi ? <h:selectBooleanCheckbox value="#{serviceBean.bayi.kuponYapma}" required="true" requiredMessage="Bahis Aktif im ?"/>
+Bayi Borç :<h:inputText value="#{serviceBean.bayi.borc}" validatorMessage="borç değerini kontrol ediniz" />
+Bayi Bakiye :<h:inputText value="#{serviceBean.bayi.bakiye}" validatorMessage="bakiye  değerini kontrol ediniz" />
+
+TC No : <h:inputText value="#{serviceBean.bayi.tcNo}"  />
+Ad Soyad; : <h:inputText value="#{serviceBean.bayi.adSoyad}"  />
+Yazıcı Tipi: <h:selectOneMenu value="#{serviceBean.bayi.yazici}" required="true" requiredMessage="Yazıcı Seçiniz!">
+<f:selectItem  itemLabel="Yazıcı Yok" itemValue="yok"/>
+<f:selectItem  itemLabel="Lazer Yazıcı" itemValue="lazer"/>
+<f:selectItem  itemLabel="Nokta Vuruşlu" itemValue="nokta"/>
+</h:selectOneMenu>
+Cep Tel1 : <h:inputText value="#{serviceBean.bayi.cepTel1}" required="true" requiredMessage="CepTel1 giriniz!" />
+Cep Tel2 : <h:inputText value="#{serviceBean.bayi.cepTel2}"  />
+İş Tel : <h:inputText value="#{serviceBean.bayi.isTel}"  />
+Adres : <h:inputText value="#{serviceBean.bayi.adres}" />
+Şehir : <h:inputText value="#{serviceBean.bayi.sehir}" />
+İlçe : <h:inputText value="#{serviceBean.bayi.ilce}"  />
+Ülke : <h:inputText value="#{serviceBean.bayi.ulke}" />
+Referans : <h:inputText value="#{serviceBean.bayi.referans}" />
+Açıklama : <h:inputText value="#{serviceBean.bayi.aciklama}" />
+HesapNo : <h:inputText value="#{serviceBean.bayi.hesapNo}"  />
+Banka Adı: <h:inputText value="#{serviceBean.bayi.banka}" />
+ <h:commandButton value="Kaydet"  />
+ <h:commandButton type="reset"  value="Formu Temizle"/>
+</h:panelGrid>
+
+<h:messages globalOnly="true" style="color:red"/>
+</h:form>
+</body> 
+</html>

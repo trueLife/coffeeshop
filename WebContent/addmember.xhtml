@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+<h:panelGrid columns="2">
+Kullanıcı Adı:  <h:inputText value="#{serviceBean.uye.kullaniciAd}" required="true" requiredMessage="Kullanıcı Adı giriniz"/> 
+Şifre: <h:inputText value="#{serviceBean.uye.sifre}" required="true" requiredMessage="Şifre giriniz!"  >
+<f:validateLength minimum="6" maximum="12" /></h:inputText>
+AdSoyad:  <h:inputText value="#{serviceBean.uye.adSoyad}" /> 
+Tel:  <h:inputText value="#{serviceBean.uye.tel}"/> 
+Şehir:  <h:inputText value="#{serviceBean.uye.sehir}"/> 
+Bakiye  <h:inputText value="#{serviceBean.uye.bakiye}" required="true" requiredMessage="kullanıcı bakiyesi giriniz">
+<f:convertNumber />
+</h:inputText>
+Aktif mi?<h:selectBooleanCheckbox value="#{serviceBean.uye.aktif}"  required="true" requiredMessage="kullanıcı Aktif mi?"/>
+<h:commandButton value="Kaydet"  />
+<h:commandButton value="Formu Temizle" action="#{serviceBean.emptyForm}" immediate="true" />
+</h:panelGrid>
+<h:messages globalOnly="true"/>
+</h:form>
+</body> 
+</html>
