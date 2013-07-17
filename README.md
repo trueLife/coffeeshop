@@ -1,4 +1,0 @@
-coffeeshop
-==========
-
-Java Projects
